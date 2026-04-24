@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K&T Furniture</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;font-family:Poppins;background:#fff;color:#222}
+
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 50px;background:white;z-index:10}
+header a{text-decoration:none;color:#333;margin-left:25px;font-size:14px}
+
+.hero{height:100vh;background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-box{background:rgba(0,0,0,0.5);padding:30px 40px;border-radius:10px;}
+.hero h1{font-size:52px;font-family:Playfair Display;color:#fff;line-height:1.3}
+
+section{padding:100px 60px;max-width:1300px;margin:auto}
+
+h2{font-size:36px;margin-bottom:30px;font-family:Playfair Display}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+
+.card{background:#f5f5f5;padding:25px;border-radius:12px}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.gallery img{width:100%;height:280px;object-fit:cover;border-radius:10px}
+
+.cta{background:#111;color:white;text-align:center;padding:100px 20px}
+
+footer{background:#111;color:#aaa;text-align:center;padding:50px}
+
+.lang{position:fixed;top:20px;right:40px}
+
+/* HOVER */
+.gallery img{
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+cursor:pointer;
+}
+.gallery img:hover{
+transform: scale(1.05);
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* LIGHTBOX */
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* WHY CHOOSE */
+.why-card{
+text-align:center;
+transition: all 0.4s ease;
+background:white;
+border:1px solid #eee;
+}
+.why-card .icon{
+font-size:30px;
+margin-bottom:15px;
+}
+.why-card:hover{
+transform: translateY(-10px);
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* SCROLL ANIMATION */
+section{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* LUX SECTION */
+.lux-why{
+background:#0b0b0f;
+color:white;
+padding:120px 60px;
+}
+
+.lux-why h2{
+color:#d4af37;
+text-align:center;
+margin-bottom:60px;
+letter-spacing:2px;
+}
+
+.lux-container{
+max-width:900px;
+margin:auto;
+}
+
+.lux-item{
+margin-bottom:60px;
+opacity:0;
+transform:translateY(50px);
+transition:all 1s ease;
+}
+
+.lux-item.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.lux-item h3{
+font-size:28px;
+font-family:Playfair Display;
+color:white;
+}
+
+.lux-item p{
+color:#aaa;
+margin-top:10px;
+line-height:1.8;
+}
+
+.line{
+width:60px;
+height:2px;
+background:#d4af37;
+margin-bottom:15px;
+}
+
+/* SPOTLIGHT FIX (QUAN TRỌNG) */
+.spotlight{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+background:radial-gradient(
+circle 180px at var(--x,50%) var(--y,50%),
+rgba(212,175,55,0.35),
+transparent 60%
+);
+z-index:99999;
+}
+.services-lux{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.service-box{
+background:linear-gradient(145deg,#111,#1a1a1a);
+padding:35px;
+border-radius:14px;
+color:white;
+position:relative;
+overflow:hidden;
+transition:0.4s ease;
+border:1px solid rgba(212,175,55,0.15);
+}
+
+.service-box:hover{
+transform:translateY(-8px);
+border:1px solid rgba(212,175,55,0.5);
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+.service-box h3{
+font-family:Playfair Display;
+font-size:22px;
+margin-top:10px;
+color:#fff;
+}
+
+.service-box p{
+color:#aaa;
+line-height:1.7;
+margin-top:10px;
+}
+
+.tag{
+position:absolute;
+top:20px;
+right:20px;
+font-size:12px;
+color:#d4af37;
+letter-spacing:2px;
+}
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:768px){
+
+header{
+  padding:15px 20px;
+}
+
+header nav{
+  display:none;
+}
+
+.hero h1{
+  font-size:32px;
+}
+
+.hero-box{
+  padding:20px;
+}
+
+section{
+  padding:60px 20px;
+}
+
+.grid{
+  grid-template-columns:1fr;
+}
+
+.gallery{
+  grid-template-columns:1fr;
+}
+
+.gallery img{
+  height:220px;
+}
+
+h2{
+  font-size:26px;
+}
+
+/* Concept grid */
+section div[style*="grid-template-columns:repeat(4,1fr)"]{
+  grid-template-columns:1fr 1fr !important;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="spotlight"></div>
+
+<div class="lang">
+<strong>EN</strong> | <a href="vi.html">VI</a>
+</div>
+
+<header>
+<div><strong>K&T Furniture</strong></div>
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-box">
+<h1>Design. Manufacture. Construct. Deliver.</h1>
+</div>
+</section>
+
+<section id="about">
+<h2>About</h2>
+<div class="grid">
+<div>
+<p><strong>We are K&T Furniture</strong>, a Vietnam-based company specializing in interior design and furniture manufacturing.</p>
+<p>With a design-driven mindset and in-house production, we provide complete solutions from concept to completion.</p>
+<p>We believe every space should serve a purpose — not only in aesthetics, but in how it enhances the way people live.</p>
+</div>
+<div>
+<img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115" style="width:100%;border-radius:10px;">
+</div>
+</div>
+</section>
+
+<section id="services">
+<section id="services">
+
+<h2>Services</h2>
+
+<div class="services-lux">
+
+<div class="service-box">
+<div class="tag">01</div>
+<h3>Interior Design Development</h3>
+<p>We transform ideas into spatial concepts with architectural precision and aesthetic direction.</p>
+</div>
+
+<div class="service-box">
+<div class="tag">02</div>
+<h3>Custom Furniture Production</h3>
+<p>In-house manufacturing ensures full control over materials, detailing, and finishing quality.</p>
+</div>
+
+<div class="service-box">
+<div class="tag">03</div>
+<h3>OEM / Private Label Manufacturing</h3>
+<p>We produce for brands, studios, and developers with consistent export-grade standards.</p>
+</div>
+
+<div class="service-box">
+<div class="tag">04</div>
+<h3>Space Planning & Optimization</h3>
+<p>We maximize functionality while maintaining visual harmony in every square meter.</p>
+</div>
+
+<div class="service-box">
+<div class="tag">05</div>
+<h3>Full Project Execution</h3>
+<p>From concept to installation — one integrated workflow, no fragmentation, no loss of quality.</p>
+</div>
+
+<div class="service-box">
+<div class="tag">06</div>
+<h3>Material & Finishing Customization</h3>
+<p>We curate textures, tones, and materials tailored to each project identity.</p>
+</div>
+
+</div>
+
+</section>
+</section>
+
+<section class="lux-why">
+<h2>Why Choose Us</h2>
+
+<div class="lux-container">
+
+<div class="lux-item">
+<div class="line"></div>
+<h3>Design-driven precision</h3>
+<p>Every detail is engineered from concept to execution.</p>
+</div>
+
+<div class="lux-item">
+<div class="line"></div>
+<h3>Manufacturing control</h3>
+<p>Full in-house production ensures absolute consistency.</p>
+</div>
+
+<div class="lux-item">
+<div class="line"></div>
+<h3>Architect-level execution</h3>
+<p>Trusted by designers, developers, and premium projects.</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Manufacturing Capability</h2>
+
+<div style="position:relative;border-radius:16px;overflow:hidden;">
+<img src="https://images.pexels.com/photos/5974339/pexels-photo-5974339.jpeg"
+style="width:100%;height:420px;object-fit:cover;filter:brightness(70%);">
+
+<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;">
+<div style="background:rgba(0,0,0,0.55);padding:40px;border-radius:12px;max-width:700px;color:white;">
+<h3 style="font-size:26px;margin-bottom:20px;font-family:Playfair Display;">In-house Production Excellence</h3>
+<p>We operate a well-organized production system with modern machinery and skilled workers.</p>
+<p>Our factory ensures consistent quality and reliable output for both custom and large-scale projects.</p>
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="projects">
+<h2>Projects & Concepts</h2>
+<p>Residential • Hospitality • F&B • Commercial</p>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed">
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
+<img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace">
+<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6">
+<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea">
+<img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1">
+</div>
+
+</section>
+
+<section>
+<h2>Concept Designs</h2>
+<p>Bohemian • Mid-Century • Retro • Minimal • Modern • Luxury • Industrial • Japandi</p>
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:15px;">
+<img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f" style="width:100%;height:220px;object-fit:cover;border-radius:10px;">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0" style="width:100%;height:220px;object-fit:cover;border-radius:10px;">
+<img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" style="width:100%;height:220px;object-fit:cover;border-radius:10px;">
+<img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1" style="width:100%;height:220px;object-fit:cover;border-radius:10px;">
+</div>
+</section>
+
+<section>
+<h2>Design Style</h2>
+<p>Minimal • Modern • Elegant • Neutral tones</p>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115">
+<img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87">
+<img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154">
+</div>
+</section>
+
+<section class="cta">
+<h2>Let’s Start Your Project</h2>
+<p>We are ready to support your project from design to production.</p>
+</section>
+
+<footer id="contact">
+<p><strong>K&T FURNITURE DESIGN CONSULTANCY AND MANUFACTURING COMPANY LIMITED</strong></p>
+<p>Phone / WhatsApp: +84 938 926 326</p>
+<p>Email: kat.furni@gmail.com</p>
+<p>Address: Thu Duc City, Ho Chi Minh City, Vietnam</p>
+<p>License No: 0319433713</p>
+</footer>
+
+<div class="lightbox" id="lightbox">
+<img src="" id="lightbox-img">
+</div>
+
+<script>
+/* SCROLL EFFECT */
+window.addEventListener("load", () => {
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:0.15});
+
+sections.forEach(sec=>observer.observe(sec));
+});
+
+/* LUX ANIMATION */
+const items = document.querySelectorAll(".lux-item");
+const observer2 = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:0.2});
+
+items.forEach(i=>observer2.observe(i));
+
+/* FIXED SPOTLIGHT MOUSE */
+document.addEventListener("mousemove", (e) => {
+document.documentElement.style.setProperty("--x", e.clientX + "px");
+document.documentElement.style.setProperty("--y", e.clientY + "px");
+});
+</script>
+
+</body>
+</html>
