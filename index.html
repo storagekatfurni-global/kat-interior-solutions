@@ -611,12 +611,17 @@ document.documentElement.style.setProperty("--y", e.clientY + "px");
 }
 
 .logo-track img{
-  height:80px;
+  height:40px;
   width:auto;
-  margin:0 50px;
+  max-width:120px;
+  object-fit:contain;
+  margin:0 30px;
   opacity:0.9;
-  transition:0.4s ease;
+  transition:0.3s ease;
   filter: grayscale(100%);
+}
+  .logo-track img{
+  flex-shrink:0;
 }
 .logo-track img[src="logo1.png"],
 .logo-track img[src="logo3.png"]{
