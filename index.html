@@ -541,6 +541,79 @@ document.documentElement.style.setProperty("--x", e.clientX + "px");
 document.documentElement.style.setProperty("--y", e.clientY + "px");
 });
 </script>
+<!-- PARTNER LOGOS -->
+<section style="padding:80px 60px;text-align:center;">
+  <h2 style="font-family:Playfair Display;">Our Partners</h2>
 
+  <div class="logo-slider">
+    <div class="logo-track">
+
+      <!-- 15 LOGO -->
+      <img src="logo1.png">
+      <img src="logo2.png">
+      <img src="logo3.png">
+      <img src="logo4.png">
+      <img src="logo5.png">
+      <img src="logo6.png">
+      <img src="logo7.png">
+      <img src="logo8.png">
+      <img src="logo9.png">
+      <img src="logo10.png">
+      <img src="logo11.png">
+      <img src="logo12.png">
+      <img src="logo13.png">
+      <img src="logo14.png">
+      <img src="logo15.png">
+
+      <!-- DUPLICATE (QUAN TRỌNG) -->
+      <img src="logo1.png">
+      <img src="logo2.png">
+      <img src="logo3.png">
+      <img src="logo4.png">
+      <img src="logo5.png">
+      <img src="logo6.png">
+      <img src="logo7.png">
+      <img src="logo8.png">
+      <img src="logo9.png">
+      <img src="logo10.png">
+      <img src="logo11.png">
+      <img src="logo12.png">
+      <img src="logo13.png">
+      <img src="logo14.png">
+      <img src="logo15.png">
+
+    </div>
+  </div>
+</section>
+
+<style>
+.logo-slider{
+  overflow:hidden;
+  margin-top:40px;
+}
+
+.logo-track{
+  display:flex;
+  width:max-content;
+  animation: scroll 35s linear infinite;
+}
+
+.logo-track img{
+  height:60px;
+  margin:0 50px;
+  opacity:0.7;
+  transition:0.3s;
+}
+
+.logo-track img:hover{
+  opacity:1;
+  transform:scale(1.15);
+}
+
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+</style>
 </body>
 </html>
