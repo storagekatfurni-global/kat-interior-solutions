@@ -672,6 +672,71 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
   .glass p{
     font-size:13px;
   }
+}.manufacturing{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+.manufacturing-image{
+  flex:1;
+}
+
+.manufacturing-image img{
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  display:block;
+}
+
+.manufacturing-content{
+  flex:1;
+}
+
+/* GLASS STYLE */
+.glass{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:16px;
+  padding:30px;
+}
+
+/* TEXT */
+.glass h3{
+  font-family:Playfair Display;
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+.glass p{
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+
+  .manufacturing{
+    flex-direction:column;
+  }
+
+  .manufacturing-content{
+    width:100%;
+  }
+
+  .glass{
+    padding:18px;
+  }
+
+  .glass h3{
+    font-size:18px;
+  }
+
+  .glass p{
+    font-size:13px;
+  }
 }
   
 }
@@ -808,22 +873,19 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
 <section id="manufacturing">
 <h2>Manufacturing Capability</h2>
 
-<div class="manufacturing-wrapper">
+<div class="manufacturing">
 
-  <img src="https://images.pexels.com/photos/5974339/pexels-photo-5974339.jpeg"
-       class="manufacturing-bg">
+  <div class="manufacturing-image">
+    <img src="https://images.pexels.com/photos/5974339/pexels-photo-5974339.jpeg">
+  </div>
 
-  <div class="manufacturing-overlay">
+  <div class="manufacturing-content glass">
 
-    <div class="manufacturing-box glass">
+    <h3>In-house Production Excellence</h3>
 
-      <h3>In-house Production Excellence</h3>
+    <p>We operate a well-organized production system with modern machinery and skilled workers.</p>
 
-      <p>We operate a well-organized production system with modern machinery and skilled workers.</p>
-
-      <p>Our factory ensures consistent quality and reliable output for both custom and large-scale projects.</p>
-
-    </div>
+    <p>Our factory ensures consistent quality and reliable output for both custom and large-scale projects.</p>
 
   </div>
 
