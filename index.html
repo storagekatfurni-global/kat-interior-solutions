@@ -9,17 +9,28 @@
 <style>
 body{margin:0;font-family:Poppins;background:#fff;color:#222}
 
-header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 50px;background:white;z-index:10}
-  .brand-name{
-  font-size:18px;
-  letter-spacing:1px;
-  font-weight:500;
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:20px 50px;
+background:white;
+z-index:10;
+box-sizing:border-box;
 }
-
-.header-logo img{
+  .header-logo img{
   height:42px;
   width:auto;
   object-fit:contain;
+}
+
+.brand-name{
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:1px;
 }
 header a{text-decoration:none;color:#333;margin-left:25px;font-size:14px}
 
@@ -357,11 +368,17 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
 </div>
 
 <header>
-<header>
 
 <div class="brand-name">
 <strong>KAT Interior Solution</strong>
 </div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
 
 <div class="header-logo">
 <img src="logo-header.png" alt="KAT Logo">
