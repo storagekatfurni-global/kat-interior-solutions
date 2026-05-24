@@ -529,6 +529,80 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
     font-size:13px;
     line-height:1.6;
   }
+}.manufacturing-wrapper{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.manufacturing-bg{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  filter:brightness(70%);
+  display:block;
+}
+
+/* overlay desktop */
+.manufacturing-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
+
+/* GLASS CARD STYLE EU */
+.glass{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:16px;
+  padding:30px;
+  color:#fff;
+  max-width:650px;
+}
+
+.glass h3{
+  font-size:26px;
+  margin-bottom:15px;
+  font-family:Playfair Display;
+}
+
+.glass p{
+  font-size:14px;
+  line-height:1.7;
+  opacity:0.9;
+}
+
+/* MOBILE FIX - QUAN TRỌNG */
+@media(max-width:768px){
+
+  .manufacturing-bg{
+    height:260px;
+  }
+
+  .manufacturing-overlay{
+    position:relative;
+    padding:15px;
+  }
+
+  .glass{
+    width:100%;
+    max-width:100%;
+    padding:18px;
+    text-align:left;
+  }
+
+  .glass h3{
+    font-size:18px;
+  }
+
+  .glass p{
+    font-size:13px;
+  }
 }
   
 }
@@ -663,21 +737,27 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
 </section>
 
 <section id="manufacturing">
+<section id="manufacturing">
 <h2>Manufacturing Capability</h2>
 
-<div style="position:relative;border-radius:16px;overflow:hidden;">
-<img src="https://images.pexels.com/photos/5974339/pexels-photo-5974339.jpeg"
-style="width:100%;height:420px;object-fit:cover;filter:brightness(70%);">
+<div class="manufacturing-wrapper">
 
-<div class="manufacturing-overlay">
-<div class="manufacturing-box">
-<h3 style="font-size:26px;margin-bottom:20px;font-family:Playfair Display;">In-house Production Excellence</h3>
-<p>We operate a well-organized production system with modern machinery and skilled workers.</p>
-<p>Our factory ensures consistent quality and reliable output for both custom and large-scale projects.</p>
-</div>
-</div>
-</div>
+  <img src="https://images.pexels.com/photos/5974339/pexels-photo-5974339.jpeg"
+       class="manufacturing-bg">
 
+  <div class="manufacturing-overlay">
+    <div class="manufacturing-box glass">
+
+      <h3>In-house Production Excellence</h3>
+
+      <p>We operate a well-organized production system with modern machinery and skilled workers.</p>
+
+      <p>Our factory ensures consistent quality and reliable output for both custom and large-scale projects.</p>
+
+    </div>
+  </div>
+
+</div>
 </section>
 
 <section id="projects">
