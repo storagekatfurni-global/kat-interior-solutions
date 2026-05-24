@@ -644,11 +644,14 @@ document.documentElement.style.setProperty("--y", e.clientY + "px");
 
 .logo-slider{
   width:100%;
-  overflow:hidden;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
 }
 
 .logo-track{
-  animation: scroll 22s linear infinite;
+  animation:none;
+  width:max-content;
 }
 
 .logo-track img{
