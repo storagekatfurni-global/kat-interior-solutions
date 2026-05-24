@@ -466,7 +466,42 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
     font-size:13px;
     line-height:1.6;
   }
+}@media(max-width:768px){
+
+  /* CHUYỂN OVERLAY THÀNH BLOCK */
+  .manufacturing-overlay{
+    position:relative !important;
+    height:auto !important;
+    display:block !important;
+    padding:20px !important;
+  }
+
+  /* FIX KHUNG CHỮ */
+  .manufacturing-box{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+    padding:18px !important;
+    box-sizing:border-box;
+
+    /* QUAN TRỌNG FIX MÉO BÊN PHẢI */
+    text-align:left;
+    word-break:break-word;
+    overflow-wrap:break-word;
+  }
+
+  /* FIX TEXT */
+  .manufacturing-box h3{
+    font-size:18px;
+    line-height:1.4;
+  }
+
+  .manufacturing-box p{
+    font-size:13px;
+    line-height:1.6;
+  }
 }
+  
 }
 </style>
 </head>
