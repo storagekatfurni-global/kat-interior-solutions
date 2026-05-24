@@ -500,6 +500,35 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
     font-size:13px;
     line-height:1.6;
   }
+}@media(max-width:768px){
+
+  /* CHỈ MOBILE: bỏ overlay effect */
+  section#manufacturing .manufacturing-overlay{
+    position:relative;
+    height:auto;
+    display:block;
+    padding:20px;
+  }
+
+  section#manufacturing .manufacturing-box{
+    width:100%;
+    max-width:100%;
+    padding:18px;
+    box-sizing:border-box;
+    text-align:left;
+    word-break:break-word;
+    overflow-wrap:break-word;
+  }
+
+  section#manufacturing .manufacturing-box h3{
+    font-size:18px;
+    line-height:1.4;
+  }
+
+  section#manufacturing .manufacturing-box p{
+    font-size:13px;
+    line-height:1.6;
+  }
 }
   
 }
@@ -633,7 +662,7 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
 </div>
 </section>
 
-<section>
+<section id="manufacturing">
 <h2>Manufacturing Capability</h2>
 
 <div style="position:relative;border-radius:16px;overflow:hidden;">
