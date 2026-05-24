@@ -419,6 +419,38 @@ footer{
   .logo-track{
     animation:none;
   }
+}.glass-card{
+  color:#fff;
+}
+
+/* đảm bảo contrast tốt hơn trên desktop */
+.glass-card h3{
+  color:#ffffff;
+}
+
+.glass-card p{
+  color:rgba(255,255,255,0.85);
+}
+
+/* MOBILE GIỮ NGUYÊN nếu muốn, nhưng thêm an toàn */
+@media(max-width:768px){
+  .glass-card{
+    color:#222;
+  }
+
+  .glass-card h3{
+    color:#111;
+  }
+
+  .glass-card p{
+    color:#333;
+  }
+}.glass-card h3{
+  text-shadow:0 2px 10px rgba(0,0,0,0.4);
+}
+
+.glass-card p{
+  text-shadow:0 1px 6px rgba(0,0,0,0.3);
 }
   
 }
