@@ -602,12 +602,16 @@ document.documentElement.style.setProperty("--y", e.clientY + "px");
 .logo-slider{
   overflow:hidden;
   margin-top:40px;
+  position:relative;
+  width:100%;
 }
 
 .logo-track{
   display:flex;
-  width:max-content;
-  animation: scroll 35s linear infinite;
+  align-items:center;
+  width:fit-content;
+  will-change:transform;
+  animation: scroll 28s linear infinite;
 }
 
 .logo-track img{
@@ -662,7 +666,7 @@ document.documentElement.style.setProperty("--y", e.clientY + "px");
 
 @keyframes scroll{
   from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+  to{transform:translateX(-48%)}
 }
 }
 </style>
