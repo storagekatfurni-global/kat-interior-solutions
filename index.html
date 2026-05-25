@@ -3,336 +3,456 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>K&T Furniture</title>
+<meta name="format-detection" content="telephone=no">
+<title>KAT INTERIOR SOLUTION</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:Poppins;background:#fff;color:#222}
-
-header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 50px;background:white;z-index:10}
-header a{text-decoration:none;color:#333;margin-left:25px;font-size:14px}
-
-.hero{height:100vh;background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;display:flex;align-items:center;justify-content:center;text-align:center}
-.hero-box{background:rgba(0,0,0,0.5);padding:30px 40px;border-radius:10px;}
-.hero h1{font-size:52px;font-family:Playfair Display;color:#fff;line-height:1.3}
-
-section{padding:100px 60px;max-width:1300px;margin:auto}
-
-h2{font-size:36px;margin-bottom:30px;font-family:Playfair Display}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-
-.card{background:#f5f5f5;padding:25px;border-radius:12px}
-
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-
-.gallery img{width:100%;height:280px;object-fit:cover;border-radius:10px}
-
-.cta{background:#111;color:white;text-align:center;padding:100px 20px}
-
-footer{background:#111;color:#aaa;text-align:center;padding:50px}
-
-.lang{position:fixed;top:20px;right:40px}
-
-/* HOVER */
-.gallery img{
-transition: transform 0.4s ease, box-shadow 0.4s ease;
-cursor:pointer;
+body{
+  margin:0;
+  font-family:Poppins;
+  background:#fff;
+  color:#222;
 }
-.gallery img:hover{
-transform: scale(1.05);
-box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-/* LIGHTBOX */
-.lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:999;
-}
-.lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:10px;
-}
-
-/* WHY CHOOSE */
-.why-card{
-text-align:center;
-transition: all 0.4s ease;
-background:white;
-border:1px solid #eee;
-}
-.why-card .icon{
-font-size:30px;
-margin-bottom:15px;
-}
-.why-card:hover{
-transform: translateY(-10px);
-box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* SCROLL ANIMATION */
-section{
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
-}
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* LUX SECTION */
-.lux-why{
-background:#0b0b0f;
-color:white;
-padding:120px 60px;
-}
-
-.lux-why h2{
-color:#d4af37;
-text-align:center;
-margin-bottom:60px;
-letter-spacing:2px;
-}
-
-.lux-container{
-max-width:900px;
-margin:auto;
-}
-
-.lux-item{
-margin-bottom:60px;
-opacity:0;
-transform:translateY(50px);
-transition:all 1s ease;
-}
-
-.lux-item.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.lux-item h3{
-font-size:28px;
-font-family:Playfair Display;
-color:white;
-}
-
-.lux-item p{
-color:#aaa;
-margin-top:10px;
-line-height:1.8;
-}
-
-.line{
-width:60px;
-height:2px;
-background:#d4af37;
-margin-bottom:15px;
-}
-
-/* SPOTLIGHT FIX (QUAN TRỌNG) */
-.spotlight{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-background:radial-gradient(
-circle 180px at var(--x,50%) var(--y,50%),
-rgba(212,175,55,0.35),
-transparent 60%
-);
-z-index:99999;
-}
-.services-lux{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px;
-margin-top:40px;
-}
-
-.service-box{
-background:linear-gradient(145deg,#111,#1a1a1a);
-padding:35px;
-border-radius:14px;
-color:white;
-position:relative;
-overflow:hidden;
-transition:0.4s ease;
-border:1px solid rgba(212,175,55,0.15);
-}
-
-.service-box:hover{
-transform:translateY(-8px);
-border:1px solid rgba(212,175,55,0.5);
-box-shadow:0 20px 50px rgba(0,0,0,0.4);
-}
-
-.service-box h3{
-font-family:Playfair Display;
-font-size:22px;
-margin-top:10px;
-color:#fff;
-}
-
-.service-box p{
-color:#aaa;
-line-height:1.7;
-margin-top:10px;
-}
-
-.tag{
-position:absolute;
-top:20px;
-right:20px;
-font-size:12px;
-color:#d4af37;
-letter-spacing:2px;
-}
-/* ===== MOBILE FIX FULL ===== */
-@media(max-width:768px){
 
 /* HEADER */
 header{
-  padding:15px 20px;
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 50px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(8px);
+  z-index:10;
+  box-sizing:border-box;
+}
+
+header a{
+  text-decoration:none;
+  color:#333;
+  margin-left:25px;
+  font-size:14px;
+}
+
+.header-logo img{
+  height:60px;
+  width:auto;
+  object-fit:contain;
+}
+
+.brand-name{
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:1.5px;
 }
 
 /* HERO */
 .hero{
-  height:80vh;
-}
-.hero h1{
-  font-size:28px;
-  line-height:1.4;
-}
-.hero-box{
-  padding:20px;
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-/* SECTION */
+.hero-box{
+  background:rgba(0,0,0,0.5);
+  padding:30px 40px;
+  border-radius:10px;
+}
+
+.hero h1{
+  font-size:52px;
+  font-family:Playfair Display;
+  color:#fff;
+  line-height:1.3;
+}
+
+/* SECTION GLOBAL */
 section{
-  padding:60px 20px;
+  padding:100px 60px;
+  max-width:1300px;
+  margin:auto;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  font-size:36px;
+  margin-bottom:30px;
+  font-family:Playfair Display;
 }
 
 /* GRID */
 .grid{
-  grid-template-columns:1fr !important;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
 
-/* SERVICES FIX */
+/* SERVICES */
 .services-lux{
-  grid-template-columns:1fr !important;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  margin-top:40px;
 }
 
 .service-box{
-  padding:25px;
+  background:linear-gradient(145deg,#111,#1a1a1a);
+  padding:35px;
+  border-radius:14px;
+  color:white;
+  border:1px solid rgba(212,175,55,0.15);
+  transition:0.4s ease;
+}
+
+.service-box:hover{
+  transform:translateY(-8px);
+  border:1px solid rgba(212,175,55,0.5);
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
 }
 
 .service-box h3{
-  font-size:18px;
+  font-family:Playfair Display;
+  font-size:22px;
+  margin-top:10px;
 }
 
 .service-box p{
-  font-size:14px;
+  color:#aaa;
+  line-height:1.7;
+  margin-top:10px;
 }
 
-/* WHY SECTION */
+/* LUX WHY */
 .lux-why{
-  padding:80px 20px;
+  background:#0b0b0f;
+  color:white;
+  padding:120px 60px;
+}
+
+.lux-why h2{
+  color:#d4af37;
+  text-align:center;
+  margin-bottom:60px;
+  letter-spacing:2px;
+}
+
+.lux-container{
+  max-width:900px;
+  margin:auto;
+}
+
+.lux-item{
+  margin-bottom:60px;
+  opacity:0;
+  transform:translateY(50px);
+  transition:all 1s ease;
+}
+
+.lux-item.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .lux-item h3{
-  font-size:22px;
+  font-size:28px;
+  font-family:Playfair Display;
 }
 
-/* MANUFACTURING FIX */
-section img{
-  height:auto !important;
+.lux-item p{
+  color:#aaa;
+  margin-top:10px;
+  line-height:1.8;
 }
 
-/* GALLERY FIX */
+.line{
+  width:60px;
+  height:2px;
+  background:#d4af37;
+  margin-bottom:15px;
+}
+
+/* SPOTLIGHT */
+.spotlight{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background:radial-gradient(circle 180px at var(--x,50%) var(--y,50%),
+    rgba(212,175,55,0.35),
+    transparent 60%);
+  z-index:99999;
+}
+
+/* GALLERY */
 .gallery{
-  grid-template-columns:1fr !important;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .gallery img{
-  height:220px;
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:0.4s ease;
+  cursor:pointer;
 }
 
-/* CONCEPT GRID */
-section div[style*="repeat(4,1fr)"]{
-  grid-template-columns:1fr 1fr !important;
+.gallery img:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* TEXT */
-h2{
-  font-size:26px;
+/* CTA */
+.cta{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:100px 20px;
 }
 
-}
-header{
-  padding:15px 20px;
-}
-
-header nav{
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
   display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
 }
 
-.hero h1{
-  font-size:32px;
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
 }
 
-.hero-box{
+/* CONTACT */
+footer{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:50px;
+}
+
+.contact-line{
+  margin:12px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.contact-line span{
+  color:#fff;
+}
+
+/* LANG */
+.lang{
+  position:fixed;
+  top:20px;
+  right:40px;
+}
+
+/* MANUFACTURING (FIXED FULL) */
+.manufacturing-wrapper{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.manufacturing-bg{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+  object-position:center;
+}
+
+.manufacturing-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   padding:20px;
 }
 
-section{
-  padding:60px 20px;
+.glass-card{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:16px;
+  padding:30px;
+  color:#fff;
+  max-width:650px;
 }
 
-.grid{
-  grid-template-columns:1fr;
-}
-
-.gallery{
-  grid-template-columns:1fr;
-}
-
-.gallery img{
-  height:220px;
-}
-
-h2{
+.glass-card h3{
+  font-family:Playfair Display;
   font-size:26px;
+  margin-bottom:12px;
 }
 
-/* Concept grid */
-section div[style*="grid-template-columns:repeat(4,1fr)"]{
-  grid-template-columns:1fr 1fr !important;
-}
-.logo-item {
-  width: 140px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.glass-card p{
+  font-size:14px;
+  line-height:1.7;
+  opacity:0.9;
 }
 
-.logo-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+/* PARTNER LOGO */
+.logo-slider{
+  overflow:hidden;
+  width:100%;
+}
+
+.logo-track{
+  display:flex;
+  width:fit-content;
+  animation:scroll 28s linear infinite;
+}
+
+.logo-track img{
+  height:40px;
+  margin:0 24px;
+  filter:grayscale(100%);
+  transition:0.3s ease;
+}
+
+.logo-track img:hover{
+  filter:grayscale(0%);
+  transform:scale(1.08);
+}
+
+/* KEYFRAME */
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-48%)}
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  header{
+    padding:15px 20px;
+  }
+
+  .hero{
+    height:80vh;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  section{
+    padding:60px 20px;
+  }
+
+  .services-lux{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .gallery img{
+    height:220px;
+  }
+
+  h2{
+    font-size:26px;
+  }
+
+  .lux-why{
+    padding:80px 20px;
+  }
+
+  .manufacturing-bg{
+    height:240px;
+  }
+
+  .manufacturing-overlay{
+    position:relative;
+    display:block;
+  }
+
+  .glass-card{
+    width:100%;
+    max-width:100%;
+    padding:18px;
+    color:#222;
+    background:#fff;
+    backdrop-filter:none;
+  }
+
+  .glass-card h3{
+    font-size:18px;
+  }
+
+  .glass-card p{
+    font-size:13px;
+  }
+
+  .logo-track{
+    animation:none;
+  }
+}.glass-card{
+  color:#fff;
+}
+
+/* đảm bảo contrast tốt hơn trên desktop */
+.glass-card h3{
+  color:#ffffff;
+}
+
+.glass-card p{
+  color:rgba(255,255,255,0.85);
+}
+
+/* MOBILE GIỮ NGUYÊN nếu muốn, nhưng thêm an toàn */
+@media(max-width:768px){
+  .glass-card{
+    color:#222;
+  }
+
+  .glass-card h3{
+    color:#111;
+  }
+
+  .glass-card p{
+    color:#333;
+  }
+}.glass-card h3{
+  text-shadow:0 2px 10px rgba(0,0,0,0.4);
+}
+
+.glass-card p{
+  text-shadow:0 1px 6px rgba(0,0,0,0.3);
+}
+  
 }
 </style>
 </head>
@@ -346,7 +466,23 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
 </div>
 
 <header>
-<div><strong>K&T Furniture</strong></div>
+
+<div class="brand-name">
+<strong>KAT Interior Solution</strong>
+</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="header-logo">
+<img src="logo-header.png" alt="KAT Logo">
+</div>
+
+</header>
 <nav>
 <a href="#about">About</a>
 <a href="#services">Services</a>
@@ -365,7 +501,7 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
 <h2>About</h2>
 <div class="grid">
 <div>
-<p><strong>We are K&T Furniture</strong>, a Vietnam-based company specializing in interior design and furniture manufacturing.</p>
+<p><strong>We are KAT Interior Solution</strong>, a Vietnam-based company specializing in interior design and furniture manufacturing.</p>
 <p>With a design-driven mindset and in-house production, we provide complete solutions from concept to completion.</p>
 <p>We believe every space should serve a purpose — not only in aesthetics, but in how it enhances the way people live.</p>
 </div>
@@ -448,22 +584,29 @@ section div[style*="grid-template-columns:repeat(4,1fr)"]{
 </div>
 </section>
 
-<section>
-<h2>Manufacturing Capability</h2>
+<section id="manufacturing">
+  <h2>Manufacturing Capability</h2>
 
-<div style="position:relative;border-radius:16px;overflow:hidden;">
-<img src="https://images.pexels.com/photos/5974339/pexels-photo-5974339.jpeg"
-style="width:100%;height:420px;object-fit:cover;filter:brightness(70%);">
+  <div class="manufacturing-wrapper">
 
-<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;">
-<div style="background:rgba(0,0,0,0.55);padding:40px;border-radius:12px;max-width:700px;color:white;">
-<h3 style="font-size:26px;margin-bottom:20px;font-family:Playfair Display;">In-house Production Excellence</h3>
-<p>We operate a well-organized production system with modern machinery and skilled workers.</p>
-<p>Our factory ensures consistent quality and reliable output for both custom and large-scale projects.</p>
-</div>
-</div>
-</div>
+    <img class="manufacturing-bg"
+         src="https://images.pexels.com/photos/5974339/pexels-photo-5974339.jpeg">
 
+    <div class="manufacturing-overlay">
+      <div class="glass-card">
+        <h3>In-house Production Excellence</h3>
+
+        <p>
+          We operate a well-organized production system with modern machinery and skilled workers.
+        </p>
+
+        <p>
+          Our factory ensures consistent quality and reliable output for both custom and large-scale projects.
+        </p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section id="projects">
@@ -510,10 +653,16 @@ style="width:100%;height:420px;object-fit:cover;filter:brightness(70%);">
 
 <footer id="contact">
 <p><strong>K&T FURNITURE DESIGN CONSULTANCY AND MANUFACTURING COMPANY LIMITED</strong></p>
-<p>Phone / WhatsApp: +84 938 926 326</p>
+<p class="contact-line">
+Phone / WhatsApp:
+<span>+84 938 926 326</span>
+</p>
 <p>Email: kat.furni@gmail.com</p>
-<p>Address: Thu Duc City, Ho Chi Minh City, Vietnam</p>
-<p>License No: 0319433713</p>
+<p>Address: Thu Duc, Ho Chi Minh City, Vietnam</p>
+<p class="contact-line">
+License No:
+<span>0319433713</span>
+</p>
 </footer>
 
 <div class="lightbox" id="lightbox">
@@ -602,40 +751,75 @@ document.documentElement.style.setProperty("--y", e.clientY + "px");
 .logo-slider{
   overflow:hidden;
   margin-top:40px;
+  position:relative;
+  width:100%;
 }
 
 .logo-track{
   display:flex;
-  width:max-content;
-  animation: scroll 35s linear infinite;
+  align-items:center;
+  width:fit-content;
+  will-change:transform;
+  animation: scroll 28s linear infinite;
 }
 
 .logo-track img{
   height:40px;
   width:auto;
-  max-width:120px;
+  max-width:100px;
   object-fit:contain;
-  margin:0 30px;
+  margin:0 24px;
   opacity:0.9;
   transition:0.3s ease;
-  filter: grayscale(100%);
-}
-  .logo-track img{
+  filter:grayscale(100%);
   flex-shrink:0;
 }
+
+/* FIX LOGO NHỎ */
 .logo-track img[src="logo1.png"],
 .logo-track img[src="logo3.png"]{
-  transform: scale(1.6);
+  height:55px;
 }
+
+/* HOVER */
 .logo-track img:hover{
   opacity:1;
-  transform:scale(1.15);
+  transform:scale(1.08);
   filter: grayscale(0%);
+}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+
+.logo-slider{
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+}
+
+.logo-track{
+  animation:none;
+  width:max-content;
+}
+
+.logo-track img{
+  height:28px;
+  max-width:70px;
+  margin:0 16px;
+}
+
+.logo-track img[src="logo1.png"],
+.logo-track img[src="logo3.png"]{
+  height:38px;
+}
+
 }
 
 @keyframes scroll{
   from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+  to{transform:translateX(-48%)}
+}
 }
 </style>
 </body>
